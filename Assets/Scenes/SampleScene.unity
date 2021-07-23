@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236c598821b1e7e4bbfb39ff5892418e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cluster: {fileID: 562691602}
+  _spawnCluster: {fileID: 562691602}
   _enemyTemplate: {fileID: 1473973071617203516, guid: 66b6b83f9bbda404aa44184e593c39e2,
     type: 3}
 --- !u!1 &777401635
@@ -516,7 +516,7 @@ SurfaceEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Speed: -3.06
+  m_Speed: -3.33
   m_SpeedVariation: 0.13
   m_ForceScale: 0.1
   m_UseContactForce: 0
