@@ -424,6 +424,7 @@ MonoBehaviour:
   _spawnCluster: {fileID: 562691602}
   _enemyTemplate: {fileID: 1473973071617203516, guid: 66b6b83f9bbda404aa44184e593c39e2,
     type: 3}
+  _spawnDelay: 2
 --- !u!1 &777401635
 GameObject:
   m_ObjectHideFlags: 0

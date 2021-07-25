@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform _spawnCluster;
     [SerializeField] private GameObject _enemyTemplate;
+    [SerializeField] private float _spawnDelay;
 
     private Transform[] _points;
     private int _currentPoint;
@@ -28,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
             _currentPoint++;
             if (_currentPoint == _points.Length)
                 _currentPoint = 0;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(_spawnDelay);
         }
     }
 }
