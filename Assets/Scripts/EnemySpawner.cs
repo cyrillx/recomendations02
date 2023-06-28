@@ -9,6 +9,13 @@ public class EnemySpawner : MonoBehaviour
 
     private Transform[] _points;
     private int _currentPoint;
+    private Coroutine _spawnCoroutine = null;
+
+    public void StopSpawning()
+    {
+        StopCoroutine(_spawnCoroutine);
+        _spawnCoroutine = null;
+    }
 
     private void Start()
     {
@@ -18,7 +25,8 @@ public class EnemySpawner : MonoBehaviour
         {
             _points[i] = _spawnCluster.GetChild(i);
         }
-        StartCoroutine(SpawnEnemy());
+
+        _spawnCoroutine = StartCoroutine(SpawnEnemy());
     }
 
     private IEnumerator SpawnEnemy()
@@ -27,8 +35,10 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject.Instantiate(_enemyTemplate, _points[_currentPoint].position, Quaternion.identity);
             _currentPoint++;
+
             if (_currentPoint == _points.Length)
                 _currentPoint = 0;
+
             yield return new WaitForSeconds(_spawnDelay);
         }
     }
