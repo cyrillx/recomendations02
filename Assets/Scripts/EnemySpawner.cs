@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform _spawnCluster;
-    [SerializeField] private GameObject _enemyTemplate;
+    [SerializeField] private Enemy _enemyTemplate;
     [SerializeField] private float _spawnDelay;
 
     private Transform[] _points;
@@ -31,6 +31,8 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
+        var waitForSeconds = new WaitForSeconds(_spawnDelay);
+
         while (true)
         {
             GameObject.Instantiate(_enemyTemplate, _points[_currentPoint].position, Quaternion.identity);
@@ -39,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
             if (_currentPoint == _points.Length)
                 _currentPoint = 0;
 
-            yield return new WaitForSeconds(_spawnDelay);
+            yield return waitForSeconds;
         }
     }
 }
